@@ -11,13 +11,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.code.domain.Worker;
+import com.code.dto.WorkerDTO;
 import com.code.service.WorkerService;
 
 @RestController
@@ -65,6 +68,21 @@ public class WorkerController {
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
 
+	//Update Worker ,  DTO kullanilacak      
+	@PutMapping("/{id}")      //..localhost:8080/workers/1   =>    //tek parametreli gelecegi icin pathvariable kullanabiliriz
+	public ResponseEntity<Map<String,String>>updateWorker(@PathVariable("id") Long id, @RequestBody WorkerDTO workerDTO ){   //json olarak gelen requesti neye maplayecegiz
+		workerService.updateWorker(id,workerDTO);															             // StudentDTO ya			
+		
+		Map<String,String> map = new HashMap<>();
+		map.put("message", "Worker is updated successfully");
+		map.put("status", "true");
+		return new ResponseEntity<>(map,HttpStatus.OK);
+		                                  
+	}
+	
+	
+	
+	
 	
 	
 	
