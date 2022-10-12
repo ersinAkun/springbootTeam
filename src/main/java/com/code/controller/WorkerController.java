@@ -71,7 +71,7 @@ public class WorkerController {
 	//Update Worker ,  DTO kullanilacak      
 	@PutMapping("/{id}")      //..localhost:8080/workers/1   =>    //tek parametreli gelecegi icin pathvariable kullanabiliriz
 	public ResponseEntity<Map<String,String>>updateWorker(@PathVariable("id") Long id, @RequestBody WorkerDTO workerDTO ){   //json olarak gelen requesti neye maplayecegiz
-		workerService.updateWorker(id,workerDTO);															             // StudentDTO ya			
+		workerService.updateWorker(id,workerDTO);															             // workerDTO ya			
 		
 		Map<String,String> map = new HashMap<>();
 		map.put("message", "Worker is updated successfully");

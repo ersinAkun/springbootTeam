@@ -59,7 +59,7 @@ public class WorkerService {
 		
 		
 		//email exist mi? ve anlik olarak gelen kullaniciy mi ait bunu kontrol ediyorum 
-		if(emailExist && !workerDTO.getEmail().equals(worker.getEmail())) {
+		if(emailExist && workerDTO.getEmail().equals(worker.getEmail())) {  //unlem vardi kaldirdik !!!!!!
 		//yeni e mail datada var mi && yeni diye girdigi email eski mi .. yeni diye eski mi girmeye calisiyo??	 
 			throw new ConflictException("Email is already exist");
 		}

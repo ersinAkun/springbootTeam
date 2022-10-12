@@ -37,7 +37,8 @@ public class WorkerDTO {
 	
 	private String phoneNumber;
 	
-	@Email(message="Provide valid email")//email in formatini kontrol ediyor
+	
+	@Email(message="Provide valid email")//email in formatini kontrol ediyor xxx@yy.com
 	private String email;
 	
 	private Integer salary;
