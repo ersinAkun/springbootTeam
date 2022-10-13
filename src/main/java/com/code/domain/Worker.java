@@ -1,10 +1,14 @@
 package com.code.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,9 +18,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-
-
 
 
 @Getter
@@ -53,7 +54,8 @@ public class Worker {
 	@Column(nullable=false)
 	private Integer salary;
 	
-	
+	@OneToMany(mappedBy = "worker")
+	private List<Rules> rules = new ArrayList<>();  
 	
 	
 

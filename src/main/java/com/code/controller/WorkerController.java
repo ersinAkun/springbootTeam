@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +30,18 @@ import com.code.service.WorkerService;
 @RequestMapping("/workers")
 public class WorkerController {
 
+	Logger logger = LoggerFactory.getLogger(WorkerController.class);
+	
 	@Autowired
 	private WorkerService workerService;
+	
+	
+	@GetMapping("/welcome") // localhost:8080/workers/welcome
+	public String welcome(HttpServletRequest request) {
+		
+		logger.warn("-------------------------- Welcome{}", request.getServletPath());
+		return "Welcome to Worker Controller";
+	}
 	
 	//create new workers
 	@PostMapping
