@@ -22,7 +22,7 @@ public class Rules {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	
-	@JsonProperty("ruleName")  //sadece json da gecerli
+	@JsonProperty("ruleName")  //json ciktida isminin "ruleName" olmasini sagladik
 	private String name;
 	
 	

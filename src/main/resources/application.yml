@@ -22,9 +22,9 @@ spring:
       
 logging:
   file:
-    name: log/workerapp.log
+    name: log/workerapp.log  #log dosyam nerede olusturulsun ve ismi ne olsun
   pattern:
-    file: "%d %-5level [%thread] %logger:%msg%n"
+    file: "%d %-5level [%thread] %logger:%msg%n"   #loglamanin gelmesini istedigimiz sekil 
   level:
     '[org.springframework.web]': WARN
     '[org.hibernate]': INFO

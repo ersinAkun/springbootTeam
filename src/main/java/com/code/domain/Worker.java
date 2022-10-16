@@ -1,5 +1,6 @@
 package com.code.domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +57,9 @@ public class Worker {
 	
 	@Column(nullable=false)
 	private Integer salary;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/uuuu HH:mm:ss", timezone="Turkey")
+	private LocalDateTime createDate = LocalDateTime.now();
 	
 	@OneToMany(mappedBy = "worker")
 	private List<Rules> rules = new ArrayList<>();  
